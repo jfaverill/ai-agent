@@ -12,6 +12,11 @@ def main():
         print('\nUsage: python main.py "your prompt here"')
         print('Example: python main.py "How do I build a calculator app?"')
         sys.exit(1)
+    verbose = False
+    if args[-1] == "--verbose":
+        verbose = True
+        args = args[:-1]
+
     prompt = " ".join(args)
 
     messages = [
@@ -24,6 +29,13 @@ def main():
         model = "gemini-2.0-flash-001",
         contents = messages
     )
+
+    if verbose:
+        prompt_tokens = response.usage_metadata.prompt_token_count
+        response_tokens = response.usage_metadata.candidates_token_count
+        print(f"User prompt: {prompt}")
+        print(f"Prompt tokens: {prompt_tokens}")
+        print(f"Response tokens: {response_tokens}")
 
     print("Response:")
     print(response.text)
