@@ -19,4 +19,4 @@ def get_file_content(working_directory, file_path):
             file_content_string = f"{file_content_string[:MAX_CHARS]}[...File \"{target_file_path}\" truncated at 10000 characters]"
         return file_content_string
     except Exception as e:
-        return f"Error: {e}"
+        return f"Error reading file {target_file_path}: {e}"
