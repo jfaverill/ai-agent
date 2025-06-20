@@ -29,5 +29,6 @@ schema_write_file = types.FunctionDeclaration(
                 description="The content to write to the target file at the end of the specified file path.",
             ),
         },
+        required=["file_path", "content"],
     ),
 )

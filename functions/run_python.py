@@ -29,8 +29,9 @@ schema_get_run_python_file = types.FunctionDeclaration(
         properties={
             "file_path": types.Schema(
                 type=types.Type.STRING,
-                description="The path pointing to the file to be executed, relative to the working directory.",
+                description="The path pointing to the Python file to be executed, relative to the working directory.",
             ),
         },
+        required=["file_path"],
     ),
 )
